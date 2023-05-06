@@ -15,16 +15,16 @@ import { Switch } from "@/components/ui/switch"
 
 const notifications = [
   {
-    title: "Your call has been confirmed.",
-    description: "1 hour ago",
+    title: "Ваш звонок был подтвержден.",
+    description: "1 час назад",
   },
   {
-    title: "You have a new message!",
-    description: "1 hour ago",
+    title: "У вас есть новое сообщение!",
+    description: "1 час назад",
   },
   {
-    title: "Your subscription is expiring soon!",
-    description: "2 hours ago",
+    title: "Ваша подписка скоро истекает!",
+    description: "2 часов назад",
   },
 ]
 
@@ -34,18 +34,18 @@ export function CardDemo({ className, ...props }: CardProps) {
   return (
     <Card className={cn("w-[380px]", className)} {...props}>
       <CardHeader>
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>You have 3 unread messages.</CardDescription>
+        <CardTitle>Уведомления</CardTitle>
+        <CardDescription>У вас есть 3 непрочитанных сообщения.</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className=" flex items-center space-x-4 rounded-md border p-4">
           <BellRing />
           <div className="flex-1 space-y-1">
             <p className="text-sm font-medium leading-none">
-              Push Notifications
+              Всплывающее уведомление
             </p>
             <p className="text-sm text-muted-foreground">
-              Send notifications to device.
+              Отправлять уведомления.
             </p>
           </div>
           <Switch />

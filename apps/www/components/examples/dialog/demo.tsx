@@ -15,31 +15,32 @@ export function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline">Редактировать профиль</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Редактировать профиль</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Внесите изменения в свой профиль здесь. Нажмите Сохранить, когда
+            закончите.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
-              Name
+              Имя
             </Label>
             <Input id="name" value="Pedro Duarte" className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-              Username
+              Ник
             </Label>
             <Input id="username" value="@peduarte" className="col-span-3" />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">Сохранить изменения</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

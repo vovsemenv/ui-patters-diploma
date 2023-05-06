@@ -9,23 +9,18 @@ export function AccordionDemo() {
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
+        <AccordionTrigger>Интерфейс доступный?</AccordionTrigger>
+        <AccordionContent>Да.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionTrigger>Интерфейс стилизован</AccordionTrigger>
         <AccordionContent>
-          Yes. It comes with default styles that matches the other components'
-          aesthetic.
+          Нет. Еще не успел стилизовать компоненты
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It's animated by default, but you can disable it if you prefer.
-        </AccordionContent>
+        <AccordionTrigger>Интерфейс анимирован</AccordionTrigger>
+        <AccordionContent>Да. Он анимирован по дефолту</AccordionContent>
       </AccordionItem>
     </Accordion>
   )

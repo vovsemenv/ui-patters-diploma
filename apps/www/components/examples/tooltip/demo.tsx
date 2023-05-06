@@ -19,7 +19,7 @@ export function TooltipDemo() {
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <p>Add to library</p>
+          <p>Добавить в список</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

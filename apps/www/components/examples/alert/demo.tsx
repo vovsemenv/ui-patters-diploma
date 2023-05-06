@@ -6,10 +6,8 @@ export function AlertDemo() {
   return (
     <Alert>
       <Terminal className="h-4 w-4" />
-      <AlertTitle>Heads up!</AlertTitle>
-      <AlertDescription>
-        You can add components to your app using the cli.
-      </AlertDescription>
+      <AlertTitle>Внимание!</AlertTitle>
+      <AlertDescription>Вы можете добавить описание к алерту.</AlertDescription>
     </Alert>
   )
 }

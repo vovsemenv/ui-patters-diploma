@@ -92,7 +92,7 @@ export default async function DocPage({ params }: DocPageProps) {
       <div className="mx-auto w-full min-w-0">
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
           <div className="overflow-hidden text-ellipsis whitespace-nowrap">
-            Docs
+            Паттерны
           </div>
           <ChevronRight className="h-4 w-4" />
           <div className="font-medium text-foreground">{doc.title}</div>
@@ -107,7 +107,7 @@ export default async function DocPage({ params }: DocPageProps) {
             </p>
           )}
         </div>
-        {doc.radix ? (
+        {/* {doc.radix ? (
           <div className="flex items-center space-x-2 pt-4">
             {doc.radix?.link && (
               <Link
@@ -131,7 +131,7 @@ export default async function DocPage({ params }: DocPageProps) {
               </Link>
             )}
           </div>
-        ) : null}
+        ) : null} */}
         <Separator className="my-4 md:my-6" />
         <Mdx code={doc.body.code} />
         <Separator className="my-4 md:my-6" />
