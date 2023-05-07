@@ -2,7 +2,9 @@
   {
     "component": "accordion",
     "name": "Accordion",
-    "dependencies": ["@radix-ui/react-accordion"],
+    "dependencies": [
+      "@radix-ui/react-accordion"
+    ],
     "files": [
       {
         "name": "accordion.tsx",
@@ -25,7 +27,9 @@
   {
     "component": "alert-dialog",
     "name": "Alert Dialog",
-    "dependencies": ["@radix-ui/react-alert-dialog"],
+    "dependencies": [
+      "@radix-ui/react-alert-dialog"
+    ],
     "files": [
       {
         "name": "alert-dialog.tsx",
@@ -34,11 +38,26 @@
       }
     ]
   },
-
+  {
+    "component": "aspect-ratio",
+    "name": "Aspect Ratio",
+    "dependencies": [
+      "@radix-ui/react-aspect-ratio"
+    ],
+    "files": [
+      {
+        "name": "aspect-ratio.tsx",
+        "dir": "components/ui",
+        "content": "\"use client\"\n\nimport * as AspectRatioPrimitive from \"@radix-ui/react-aspect-ratio\"\n\nconst AspectRatio = AspectRatioPrimitive.Root\n\nexport { AspectRatio }\n"
+      }
+    ]
+  },
   {
     "component": "avatar",
     "name": "Avatar",
-    "dependencies": ["@radix-ui/react-avatar"],
+    "dependencies": [
+      "@radix-ui/react-avatar"
+    ],
     "files": [
       {
         "name": "avatar.tsx",
@@ -54,7 +73,7 @@
       {
         "name": "badge.tsx",
         "dir": "components/ui",
-        "content": "import * as React from \"react\"\nimport { VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  \"inline-flex items-center border rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"bg-primary hover:bg-primary/80 border-transparent text-primary-foreground\",\n        secondary:\n          \"bg-secondary hover:bg-secondary/80 border-transparent text-secondary-foreground\",\n        destructive:\n          \"bg-destructive hover:bg-secondary/80 border-transparent text-destructive-foreground\",\n        outline: \"text-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof badgeVariants> {}\n\nfunction Badge({ className, variant, ...props }: BadgeProps) {\n  return (\n    <div className={cn(badgeVariants({ variant }), className)} {...props} />\n  )\n}\n\nexport { Badge, badgeVariants }\n"
+        "content": "import * as React from \"react\"\nimport { VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  \"inline-flex items-center border rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"bg-primary hover:bg-primary/80 border-transparent text-primary-foreground\",\n        secondary:\n          \"bg-secondary hover:bg-secondary/80 border-transparent text-secondary-foreground\",\n        destructive:\n          \"bg-destructive hover:bg-destructive/80 border-transparent text-destructive-foreground\",\n        outline: \"text-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof badgeVariants> {}\n\nfunction Badge({ className, variant, ...props }: BadgeProps) {\n  return (\n    <div className={cn(badgeVariants({ variant }), className)} {...props} />\n  )\n}\n\nexport { Badge, badgeVariants }\n"
       }
     ]
   },
@@ -65,14 +84,17 @@
       {
         "name": "button.tsx",
         "dir": "components/ui",
-        "content": "import * as React from \"react\"\nimport { VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n        destructive:\n          \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n        outline:\n          \"border border-input hover:bg-accent hover:text-accent-foreground\",\n        secondary:\n          \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\n        ghost: \"hover:bg-accent hover:text-accent-foreground\",\n        link: \"underline-offset-4 hover:underline text-primary\",\n      },\n      size: {\n        default: \"h-10 py-2 px-4\",\n        sm: \"h-9 px-3 rounded-md\",\n        lg: \"h-11 px-8 rounded-md\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\nexport interface ButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n  ({ className, variant, size, ...props }, ref) => {\n    return (\n      <button\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nButton.displayName = \"Button\"\n\nexport { Button, buttonVariants }\n"
+        "content": "import * as React from \"react\"\nimport { Slot } from \"@radix-ui/react-slot\"\nimport { VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n        destructive:\n          \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n        outline:\n          \"border border-input hover:bg-accent hover:text-accent-foreground\",\n        secondary:\n          \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\n        ghost: \"hover:bg-accent hover:text-accent-foreground\",\n        link: \"underline-offset-4 hover:underline text-primary\",\n      },\n      size: {\n        default: \"h-10 py-2 px-4\",\n        sm: \"h-9 px-3 rounded-md\",\n        lg: \"h-11 px-8 rounded-md\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\nexport interface ButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n  ({ className, variant, size, asChild = false, ...props }, ref) => {\n    const Comp = asChild ? Slot : \"button\"\n    return (\n      <Comp\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nButton.displayName = \"Button\"\n\nexport { Button, buttonVariants }\n"
       }
     ]
   },
   {
     "component": "calendar",
     "name": "Calendar",
-    "dependencies": ["react-day-picker", "date-fns"],
+    "dependencies": [
+      "react-day-picker",
+      "date-fns"
+    ],
     "files": [
       {
         "name": "calendar.tsx",
@@ -95,7 +117,9 @@
   {
     "component": "checkbox",
     "name": "Checkbox",
-    "dependencies": ["@radix-ui/react-checkbox"],
+    "dependencies": [
+      "@radix-ui/react-checkbox"
+    ],
     "files": [
       {
         "name": "checkbox.tsx",
@@ -107,7 +131,9 @@
   {
     "component": "collapsible",
     "name": "Collapsible",
-    "dependencies": ["@radix-ui/react-collapsible"],
+    "dependencies": [
+      "@radix-ui/react-collapsible"
+    ],
     "files": [
       {
         "name": "collapsible.tsx",
@@ -119,7 +145,9 @@
   {
     "component": "command",
     "name": "Command",
-    "dependencies": ["cmdk"],
+    "dependencies": [
+      "cmdk"
+    ],
     "files": [
       {
         "name": "command.tsx",
@@ -131,7 +159,9 @@
   {
     "component": "context-menu",
     "name": "Context Menu",
-    "dependencies": ["@radix-ui/react-context-menu"],
+    "dependencies": [
+      "@radix-ui/react-context-menu"
+    ],
     "files": [
       {
         "name": "context-menu.tsx",
@@ -143,7 +173,9 @@
   {
     "component": "dialog",
     "name": "Dialog",
-    "dependencies": ["@radix-ui/react-dialog"],
+    "dependencies": [
+      "@radix-ui/react-dialog"
+    ],
     "files": [
       {
         "name": "dialog.tsx",
@@ -155,19 +187,23 @@
   {
     "component": "dropdown-menu",
     "name": "Dropdown Menu",
-    "dependencies": ["@radix-ui/react-dropdown-menu"],
+    "dependencies": [
+      "@radix-ui/react-dropdown-menu"
+    ],
     "files": [
       {
         "name": "dropdown-menu.tsx",
         "dir": "components/ui",
-        "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as DropdownMenuPrimitive from \"@radix-ui/react-dropdown-menu\"\nimport { Check, ChevronRight, Circle } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst DropdownMenu = DropdownMenuPrimitive.Root\n\nconst DropdownMenuTrigger = DropdownMenuPrimitive.Trigger\n\nconst DropdownMenuGroup = DropdownMenuPrimitive.Group\n\nconst DropdownMenuPortal = DropdownMenuPrimitive.Portal\n\nconst DropdownMenuSub = DropdownMenuPrimitive.Sub\n\nconst DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup\n\nconst DropdownMenuSubTrigger = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {\n    inset?: boolean\n  }\n>(({ className, inset, children, ...props }, ref) => (\n  <DropdownMenuPrimitive.SubTrigger\n    ref={ref}\n    className={cn(\n      \"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent\",\n      inset && \"pl-8\",\n      className\n    )}\n    {...props}\n  >\n    {children}\n    <ChevronRight className=\"ml-auto h-4 w-4\" />\n  </DropdownMenuPrimitive.SubTrigger>\n))\nDropdownMenuSubTrigger.displayName =\n  DropdownMenuPrimitive.SubTrigger.displayName\n\nconst DropdownMenuSubContent = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.SubContent\n    ref={ref}\n    className={cn(\n      \"text-on-popover z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 shadow-md animate-in data-[side=bottom]:slide-in-from-top-1 data-[side=left]:slide-in-from-right-1 data-[side=right]:slide-in-from-left-1 data-[side=top]:slide-in-from-bottom-1\",\n      className\n    )}\n    {...props}\n  />\n))\nDropdownMenuSubContent.displayName =\n  DropdownMenuPrimitive.SubContent.displayName\n\nconst DropdownMenuContent = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>\n>(({ className, sideOffset = 4, ...props }, ref) => (\n  <DropdownMenuPrimitive.Portal>\n    <DropdownMenuPrimitive.Content\n      ref={ref}\n      sideOffset={sideOffset}\n      className={cn(\n        \"z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\n        className\n      )}\n      {...props}\n    />\n  </DropdownMenuPrimitive.Portal>\n))\nDropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName\n\nconst DropdownMenuItem = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Item>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {\n    inset?: boolean\n  }\n>(({ className, inset, ...props }, ref) => (\n  <DropdownMenuPrimitive.Item\n    ref={ref}\n    className={cn(\n      \"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50\",\n      inset && \"pl-8\",\n      className\n    )}\n    {...props}\n  />\n))\nDropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName\n\nconst DropdownMenuCheckboxItem = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>\n>(({ className, children, checked, ...props }, ref) => (\n  <DropdownMenuPrimitive.CheckboxItem\n    ref={ref}\n    className={cn(\n      \"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50\",\n      className\n    )}\n    checked={checked}\n    {...props}\n  >\n    <span className=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\">\n      <DropdownMenuPrimitive.ItemIndicator>\n        <Check className=\"h-4 w-4\" />\n      </DropdownMenuPrimitive.ItemIndicator>\n    </span>\n    {children}\n  </DropdownMenuPrimitive.CheckboxItem>\n))\nDropdownMenuCheckboxItem.displayName =\n  DropdownMenuPrimitive.CheckboxItem.displayName\n\nconst DropdownMenuRadioItem = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>\n>(({ className, children, ...props }, ref) => (\n  <DropdownMenuPrimitive.RadioItem\n    ref={ref}\n    className={cn(\n      \"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50\",\n      className\n    )}\n    {...props}\n  >\n    <span className=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\">\n      <DropdownMenuPrimitive.ItemIndicator>\n        <Circle className=\"h-2 w-2 fill-current\" />\n      </DropdownMenuPrimitive.ItemIndicator>\n    </span>\n    {children}\n  </DropdownMenuPrimitive.RadioItem>\n))\nDropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName\n\nconst DropdownMenuLabel = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Label>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {\n    inset?: boolean\n  }\n>(({ className, inset, ...props }, ref) => (\n  <DropdownMenuPrimitive.Label\n    ref={ref}\n    className={cn(\n      \"px-2 py-1.5 text-sm font-semibold\",\n      inset && \"pl-8\",\n      className\n    )}\n    {...props}\n  />\n))\nDropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName\n\nconst DropdownMenuSeparator = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.Separator\n    ref={ref}\n    className={cn(\"-mx-1 my-1 h-px bg-muted\", className)}\n    {...props}\n  />\n))\nDropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName\n\nconst DropdownMenuShortcut = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLSpanElement>) => {\n  return (\n    <span\n      className={cn(\"ml-auto text-xs tracking-widest opacity-60\", className)}\n      {...props}\n    />\n  )\n}\nDropdownMenuShortcut.displayName = \"DropdownMenuShortcut\"\n\nexport {\n  DropdownMenu,\n  DropdownMenuTrigger,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuCheckboxItem,\n  DropdownMenuRadioItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuGroup,\n  DropdownMenuPortal,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuRadioGroup,\n}\n"
+        "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as DropdownMenuPrimitive from \"@radix-ui/react-dropdown-menu\"\nimport { Check, ChevronRight, Circle } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst DropdownMenu = DropdownMenuPrimitive.Root\n\nconst DropdownMenuTrigger = DropdownMenuPrimitive.Trigger\n\nconst DropdownMenuGroup = DropdownMenuPrimitive.Group\n\nconst DropdownMenuPortal = DropdownMenuPrimitive.Portal\n\nconst DropdownMenuSub = DropdownMenuPrimitive.Sub\n\nconst DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup\n\nconst DropdownMenuSubTrigger = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {\n    inset?: boolean\n  }\n>(({ className, inset, children, ...props }, ref) => (\n  <DropdownMenuPrimitive.SubTrigger\n    ref={ref}\n    className={cn(\n      \"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent\",\n      inset && \"pl-8\",\n      className\n    )}\n    {...props}\n  >\n    {children}\n    <ChevronRight className=\"ml-auto h-4 w-4\" />\n  </DropdownMenuPrimitive.SubTrigger>\n))\nDropdownMenuSubTrigger.displayName =\n  DropdownMenuPrimitive.SubTrigger.displayName\n\nconst DropdownMenuSubContent = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.SubContent\n    ref={ref}\n    className={cn(\n      \"z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in data-[side=bottom]:slide-in-from-top-1 data-[side=left]:slide-in-from-right-1 data-[side=right]:slide-in-from-left-1 data-[side=top]:slide-in-from-bottom-1\",\n      className\n    )}\n    {...props}\n  />\n))\nDropdownMenuSubContent.displayName =\n  DropdownMenuPrimitive.SubContent.displayName\n\nconst DropdownMenuContent = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>\n>(({ className, sideOffset = 4, ...props }, ref) => (\n  <DropdownMenuPrimitive.Portal>\n    <DropdownMenuPrimitive.Content\n      ref={ref}\n      sideOffset={sideOffset}\n      className={cn(\n        \"z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\n        className\n      )}\n      {...props}\n    />\n  </DropdownMenuPrimitive.Portal>\n))\nDropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName\n\nconst DropdownMenuItem = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Item>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {\n    inset?: boolean\n  }\n>(({ className, inset, ...props }, ref) => (\n  <DropdownMenuPrimitive.Item\n    ref={ref}\n    className={cn(\n      \"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50\",\n      inset && \"pl-8\",\n      className\n    )}\n    {...props}\n  />\n))\nDropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName\n\nconst DropdownMenuCheckboxItem = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>\n>(({ className, children, checked, ...props }, ref) => (\n  <DropdownMenuPrimitive.CheckboxItem\n    ref={ref}\n    className={cn(\n      \"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50\",\n      className\n    )}\n    checked={checked}\n    {...props}\n  >\n    <span className=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\">\n      <DropdownMenuPrimitive.ItemIndicator>\n        <Check className=\"h-4 w-4\" />\n      </DropdownMenuPrimitive.ItemIndicator>\n    </span>\n    {children}\n  </DropdownMenuPrimitive.CheckboxItem>\n))\nDropdownMenuCheckboxItem.displayName =\n  DropdownMenuPrimitive.CheckboxItem.displayName\n\nconst DropdownMenuRadioItem = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>\n>(({ className, children, ...props }, ref) => (\n  <DropdownMenuPrimitive.RadioItem\n    ref={ref}\n    className={cn(\n      \"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50\",\n      className\n    )}\n    {...props}\n  >\n    <span className=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\">\n      <DropdownMenuPrimitive.ItemIndicator>\n        <Circle className=\"h-2 w-2 fill-current\" />\n      </DropdownMenuPrimitive.ItemIndicator>\n    </span>\n    {children}\n  </DropdownMenuPrimitive.RadioItem>\n))\nDropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName\n\nconst DropdownMenuLabel = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Label>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {\n    inset?: boolean\n  }\n>(({ className, inset, ...props }, ref) => (\n  <DropdownMenuPrimitive.Label\n    ref={ref}\n    className={cn(\n      \"px-2 py-1.5 text-sm font-semibold\",\n      inset && \"pl-8\",\n      className\n    )}\n    {...props}\n  />\n))\nDropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName\n\nconst DropdownMenuSeparator = React.forwardRef<\n  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,\n  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.Separator\n    ref={ref}\n    className={cn(\"-mx-1 my-1 h-px bg-muted\", className)}\n    {...props}\n  />\n))\nDropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName\n\nconst DropdownMenuShortcut = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLSpanElement>) => {\n  return (\n    <span\n      className={cn(\"ml-auto text-xs tracking-widest opacity-60\", className)}\n      {...props}\n    />\n  )\n}\nDropdownMenuShortcut.displayName = \"DropdownMenuShortcut\"\n\nexport {\n  DropdownMenu,\n  DropdownMenuTrigger,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuCheckboxItem,\n  DropdownMenuRadioItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuGroup,\n  DropdownMenuPortal,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuRadioGroup,\n}\n"
       }
     ]
   },
   {
     "component": "hover-card",
     "name": "Hover Card",
-    "dependencies": ["@radix-ui/react-hover-card"],
+    "dependencies": [
+      "@radix-ui/react-hover-card"
+    ],
     "files": [
       {
         "name": "hover-card.tsx",
@@ -190,7 +226,9 @@
   {
     "component": "label",
     "name": "Label",
-    "dependencies": ["@radix-ui/react-label"],
+    "dependencies": [
+      "@radix-ui/react-label"
+    ],
     "files": [
       {
         "name": "label.tsx",
@@ -202,7 +240,9 @@
   {
     "component": "menubar",
     "name": "Menubar",
-    "dependencies": ["@radix-ui/react-menubar"],
+    "dependencies": [
+      "@radix-ui/react-menubar"
+    ],
     "files": [
       {
         "name": "menubar.tsx",
@@ -214,7 +254,9 @@
   {
     "component": "navigation-menu",
     "name": "Navigation Menu",
-    "dependencies": ["@radix-ui/react-navigation-menu"],
+    "dependencies": [
+      "@radix-ui/react-navigation-menu"
+    ],
     "files": [
       {
         "name": "navigation-menu.tsx",
@@ -226,7 +268,9 @@
   {
     "component": "popover",
     "name": "Popover",
-    "dependencies": ["@radix-ui/react-popover"],
+    "dependencies": [
+      "@radix-ui/react-popover"
+    ],
     "files": [
       {
         "name": "popover.tsx",
@@ -238,7 +282,9 @@
   {
     "component": "progress",
     "name": "Progress",
-    "dependencies": ["@radix-ui/react-progress"],
+    "dependencies": [
+      "@radix-ui/react-progress"
+    ],
     "files": [
       {
         "name": "progress.tsx",
@@ -250,7 +296,9 @@
   {
     "component": "radio-group",
     "name": "Radio Group",
-    "dependencies": ["@radix-ui/react-radio-group"],
+    "dependencies": [
+      "@radix-ui/react-radio-group"
+    ],
     "files": [
       {
         "name": "radio-group.tsx",
@@ -262,7 +310,9 @@
   {
     "component": "scroll-area",
     "name": "Scroll-area",
-    "dependencies": ["@radix-ui/react-scroll-area"],
+    "dependencies": [
+      "@radix-ui/react-scroll-area"
+    ],
     "files": [
       {
         "name": "scroll-area.tsx",
@@ -274,7 +324,9 @@
   {
     "component": "select",
     "name": "Select",
-    "dependencies": ["@radix-ui/react-select"],
+    "dependencies": [
+      "@radix-ui/react-select"
+    ],
     "files": [
       {
         "name": "select.tsx",
@@ -286,7 +338,9 @@
   {
     "component": "separator",
     "name": "Separator",
-    "dependencies": ["@radix-ui/react-separator"],
+    "dependencies": [
+      "@radix-ui/react-separator"
+    ],
     "files": [
       {
         "name": "separator.tsx",
@@ -298,7 +352,9 @@
   {
     "component": "sheet",
     "name": "Sheet",
-    "dependencies": ["@radix-ui/react-dialog"],
+    "dependencies": [
+      "@radix-ui/react-dialog"
+    ],
     "files": [
       {
         "name": "sheet.tsx",
@@ -321,7 +377,9 @@
   {
     "component": "slider",
     "name": "Slider",
-    "dependencies": ["@radix-ui/react-slider"],
+    "dependencies": [
+      "@radix-ui/react-slider"
+    ],
     "files": [
       {
         "name": "slider.tsx",
@@ -333,7 +391,9 @@
   {
     "component": "switch",
     "name": "Switch",
-    "dependencies": ["@radix-ui/react-switch"],
+    "dependencies": [
+      "@radix-ui/react-switch"
+    ],
     "files": [
       {
         "name": "switch.tsx",
@@ -345,7 +405,9 @@
   {
     "component": "tabs",
     "name": "Tabs",
-    "dependencies": ["@radix-ui/react-tabs"],
+    "dependencies": [
+      "@radix-ui/react-tabs"
+    ],
     "files": [
       {
         "name": "tabs.tsx",
@@ -368,7 +430,9 @@
   {
     "component": "toast",
     "name": "Toast",
-    "dependencies": ["@radix-ui/react-toast"],
+    "dependencies": [
+      "@radix-ui/react-toast"
+    ],
     "files": [
       {
         "name": "toast.tsx",
@@ -385,7 +449,9 @@
   {
     "component": "toggle",
     "name": "Toggle",
-    "dependencies": ["@radix-ui/react-toggle"],
+    "dependencies": [
+      "@radix-ui/react-toggle"
+    ],
     "files": [
       {
         "name": "toggle.tsx",
@@ -397,7 +463,9 @@
   {
     "component": "tooltip",
     "name": "Tooltip",
-    "dependencies": ["@radix-ui/react-tooltip"],
+    "dependencies": [
+      "@radix-ui/react-tooltip"
+    ],
     "files": [
       {
         "name": "tooltip.tsx",
