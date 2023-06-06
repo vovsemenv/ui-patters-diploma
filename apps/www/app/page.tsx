@@ -59,7 +59,10 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             </div>
           </div>
           <div className="xl:mr-44 sm:mr-0 sm:mb-28 mb-0 lg:mb-0 mr-48 md:pl-10">
-            <CardDemo />
+            <div>
+              <CardDemo />
+              <p className="text-center">Пример паттерна карточка</p>
+            </div>
           </div>
         </div>
         <div className="grr max-w-7xl pt-20 mx-auto text-center">
