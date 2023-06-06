@@ -13,11 +13,6 @@ const nextConfig = {
   redirects() {
     return [
       {
-        source: "/",
-        destination: "/docs/components/accordion",
-        permanent: true,
-      },
-      {
         source: "/components",
         destination: "/docs/components/accordion",
         permanent: true,

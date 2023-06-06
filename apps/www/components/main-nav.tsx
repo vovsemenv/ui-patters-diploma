@@ -27,8 +27,9 @@ export function MainNav() {
             pathname === "/docs" ? "text-foreground" : "text-foreground/60"
           )}
         >
-          Documentation
+          Описание
         </Link>
+
         <Link
           href="/docs/components"
           className={cn(
@@ -38,9 +39,9 @@ export function MainNav() {
               : "text-foreground/60"
           )}
         >
-          Components
+          Паттерны
         </Link>
-        <Link
+        {/* <Link
           href="/examples"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -50,15 +51,15 @@ export function MainNav() {
           )}
         >
           Examples
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href={siteConfig.links.github}
           className={cn(
             "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
           )}
         >
           GitHub
-        </Link>
+        </Link> */}
       </nav>
     </div>
   )

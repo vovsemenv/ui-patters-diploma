@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "uo-patterns-diploma",
+  name: "Библиотека паттернов",
   url: "https://ui-patters-diploma.vercel.app",
   ogImage: "https://invalid-urls-just-for-tests.ru",
   description: "Vladimir Semyonov ui patterns diploma",

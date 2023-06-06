@@ -17,10 +17,7 @@ export function DemoCreateAccount() {
   return (
     <Card>
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl">Create an account</CardTitle>
-        <CardDescription>
-          Enter your email below to create your account
-        </CardDescription>
+        <CardTitle className="text-2xl">Создать аккаунт</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className="grid grid-cols-2 gap-6">
@@ -39,22 +36,19 @@ export function DemoCreateAccount() {
           </div>
           <div className="relative flex justify-center text-xs uppercase">
             <span className="bg-background px-2 text-muted-foreground">
-              Or continue with
+              Или войдите с помощью
             </span>
           </div>
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">Почта</Label>
           <Input id="email" type="email" placeholder="m@example.com" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">Пароль</Label>
           <Input id="password" type="password" />
         </div>
       </CardContent>
-      <CardFooter>
-        <Button className="w-full">Create account</Button>
-      </CardFooter>
     </Card>
   )
 }
